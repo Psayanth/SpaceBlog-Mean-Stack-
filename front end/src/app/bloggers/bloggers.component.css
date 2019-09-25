@@ -1,0 +1,6 @@
+button:hover,
+button:visited,
+button:link,
+button:active {
+    text-decoration: none;
+}

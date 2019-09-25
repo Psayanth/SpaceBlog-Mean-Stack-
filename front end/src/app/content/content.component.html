@@ -1,0 +1,27 @@
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="my-4">Astronomy Picture of the Day
+                <small>from NASA</small>
+            </h1>
+            <div *ngIf="config">
+                <div *ngFor="let conf of config | paginate:{itemsPerPage: 5, currentPage:p}">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src={{conf?.url}} alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="card-title">{{conf?.title}}</h2>
+                            <p class="card-text">{{conf?.explanation}}</p>
+                            <a href="https://blogs.nasa.gov/" class="btn btn-primary">Read More &rarr;</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Posted on {{conf?.date}} by
+                            <a href="https://blogs.nasa.gov/">NASA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </div>
+    </div>
+</div>

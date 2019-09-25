@@ -1,0 +1,32 @@
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="my-4">Your Recent Blog Posts
+                <small></small>
+            </h1>
+            <div *ngIf="Blog">
+                <div *ngFor="let blog of Blog | paginate:{itemsPerPage: 5, currentPage:p}">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src={{blog?.imgurl}} alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="card-title">{{blog?.title}}</h2>
+                            <p class="card-text">{{blog?.body}}</p>
+                            
+                        </div>
+                        <div class="card-footer text-muted" style="padding:10px auto ">
+                            <ul>
+                                <li><button type="button" class="btn btn-link text-muted">Posted on {{blog?.date}}</button></li>
+                                <li><button type="button" class="btn btn-link" (click)="UpdatePost(blog?._id)">Edit</button></li>
+                                <li><button type="button" class="btn btn-link" (click)="DeletePost(blog?._id)">Delete</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+
+                </div>
+            </div>
+            <hr>
+            <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </div>
+    </div>
+</div>

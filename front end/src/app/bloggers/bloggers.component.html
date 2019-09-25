@@ -1,0 +1,24 @@
+<div class="container" style="margin:100px auto;">
+    <h1 style="text-align: center;padding-bottom:30px">
+        Users List
+    </h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Li.no</th>
+                <th scope="col">User name</th>
+                <th scope="col">Email id</th>
+                <th scope="col">...Action</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="user">
+            <tr *ngFor="let usr of user| paginate:{itemsPerPage: 5, currentPage:p};let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{usr?.firstName}}</td>
+                <td>{{usr?.email}}</td>
+                <td><button type="button" class="btn btn-link" (click)="DeleteUser(usr?._id)">Remove</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>

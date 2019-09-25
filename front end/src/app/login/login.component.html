@@ -1,0 +1,64 @@
+<div class="card shadow-lg p-3 mb-5 bg-white rounded frmcard">
+    <h5 class="card-header" style="background-color: teal;text-align: center">Log in</h5>
+    <div class="card-body">
+        <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
+
+            <div class="form-group">
+                <label for="">Email</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                    </div>
+                    <input type="email" name="email" class="form-control" id="email" #email="ngModel" [(ngModel)]="userData1.luserEmail" [pattern]="emailPattern" required>
+                </div>
+
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <div *ngIf="email.errors">
+                        <div *ngIf="email.errors.required">
+                            Email required.
+                        </div>
+                        <div *ngIf="email.errors.pattern">
+                            Email not valid.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+
+                        <span class="input-group-text"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="password" name="Password" class="form-control" id="Password" #Password="ngModel" [(ngModel)]="userData1.luserPassword" required minlength="8">
+                </div>
+                <div *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="alert alert-danger">
+                    <div *ngIf="Password.errors.required"> Password is required </div>
+                    <div *ngIf="Password.errors.minlength"> Password must be 8 characters long</div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="form-group form-check">
+                <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input" required>
+                <label for="acceptTerms" class="form-check-label">Remember me</label>
+
+
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1" [disabled]="!f.valid">Login</button>
+                <button class="btn btn-secondary" type="reset">Cancel</button>
+            </div>
+            <hr>
+            <div>
+                <label for="">Don't you have an account ?<a href="/signup"> sign up here!!</a></label>
+            </div>
+        </form>
+    </div>
+</div>

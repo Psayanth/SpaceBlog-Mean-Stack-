@@ -1,0 +1,14 @@
+.frmcard {
+    width: auto;
+    max-width: 40rem;
+    min-width: 20rem;
+    /* margin: 80px 220px 50px 100px */
+    margin: 80px auto;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+}

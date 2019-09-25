@@ -1,0 +1,74 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/">SpaceBlog</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      <span class="sr-only">Toggle Navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav mr-auto">
+            <div *ngIf="!adminFlag">
+                <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </div>
+            <div *ngIf="!adminFlag">
+                <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <a class="nav-link" routerLink="/about">About</a>
+                </li>
+            </div>
+            <div *ngIf="!adminFlag">
+                <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <a class="nav-link" routerLink="/contact">Contact</a>
+                </li>
+            </div>
+            <div *ngIf="adminFlag">
+                <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <a class="nav-link" routerLink="/posts">Posts</a>
+                </li>
+            </div>
+            <div *ngIf="adminFlag">
+                <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <a class="nav-link" routerLink="/users">Users</a>
+                </li>
+            </div>
+            <div *ngIf="flag">
+                <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <a class="nav-link" routerLink="/trending">Trending</a>
+                </li>
+            </div>
+            <div *ngIf="flag || adminFlag">
+                <li class="nav-item dropdown dmenu active" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                          MyPosts
+                        </a>
+                    <div class="dropdown-menu sm-menu">
+                        <a class="dropdown-item" routerLink="myposts/recent">Recent</a>
+                        <a class="dropdown-item" routerLink="myposts/create">Create</a>
+                    </div>
+                </li>
+            </div>
+        </ul>
+        <div>
+            <div *ngIf="!flag && !adminFlag">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item active" style="float: right" data-toggle="collapse" data-target=".navbar-collapse.show">
+                        <a class="nav-link" routerLink="/signup"> Sign Up</a>
+                    </li>
+                    <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+                        <a class="nav-link" routerLink="/login"> Login</a>
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="flag || adminFlag">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
+                        <a class="nav-link" routerLink="/logout" (click)="Logout()"> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

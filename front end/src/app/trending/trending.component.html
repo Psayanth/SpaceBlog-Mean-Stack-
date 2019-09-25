@@ -1,0 +1,28 @@
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="my-4">Trending Posts
+                <small></small>
+            </h1>
+            <div *ngIf="Blog">
+                <div *ngFor="let blog of Blog | paginate:{itemsPerPage: 5, currentPage:p}">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src={{blog?.imgurl}} alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="card-title">{{blog?.title}}</h2>
+                            <p class="card-text">{{blog?.body}}</p>
+                            <a href="" class="btn btn-primary">Read More &rarr;</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <ul>
+                                <li style="list-style: none"> Posted on {{blog?.date}} by <a href="">{{blog.name}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <pagination-controls (pageChange)="p=$event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

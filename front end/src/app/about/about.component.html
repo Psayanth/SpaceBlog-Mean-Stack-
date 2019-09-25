@@ -1,0 +1,99 @@
+<div class="jumbotron jumbotron-fluid text-center bg-dark">
+    <h1>SpaceBlog</h1>
+    <p>Space science related blogs</p>
+    <form>
+        <div class="input-group">
+            <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-danger">Subscribe</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="about" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>About Us</h2><br>
+            <h4 style="font-family:Verdana, Geneva, Tahoma, sans-serif">SpaceBlog is a platform for anyone who got an interest in space science. We provide you the important news and articles from NASA and other space agencies. Also, you can share your thoughts with amazing people at SpaceBlog. You won't miss
+                any space science updates here.</h4><br>
+            <p style="font-family:Verdana, Geneva, Tahoma, sans-serif">Science is the underpinning theme of us. It drives innovation and leads to progress and economic development. It inspires future generations of scientists and engineers, and it drives global information exchange and communication. Space science
+                makes us look outwards from our planet, to the stars and beyond. It’s a subject that strives to answer the ultimate questions: How did our Earth and our Solar System form and evolve? What is our place in the Universe? Where are we going?
+                Where did life come from, and are we alone?</p>
+            <br>
+            <button class="btn btn-secondary bg-dark">Get in Touch</button>
+        </div>
+        <div class="col-sm-4">
+            <span style="padding-left: 70px"><i class="material-icons logo slideanim">
+                    trending_up
+                    </i></span>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-grey">
+    <div class="row">
+        <div class="col-sm-4">
+            <span><i class="material-icons logo"> visibility</i></span>
+        </div>
+        <div class="col-sm-8">
+            <h2>Our Values</h2><br>
+            <h4 style="font-family:Verdana, Geneva, Tahoma, sans-serif"><strong>MISSION:</strong> Our mission is to connect with amazing people around the world and share knowledge and help each other.</h4><br>
+            <h4 style="font-family:Verdana, Geneva, Tahoma, sans-serif"><strong>VISION:</strong> Our vision to provide informations each and every single person who got interest in space science .</h4>
+        </div>
+    </div>
+</div>
+<div id="portfolio" class="container-fluid text-center bg-grey">
+    <h2>Meet the Team</h2><br>
+
+    <div class="row text-center slideanim">
+        <div class="col">
+            <div class="thumbnail">
+                <img src="https://media.licdn.com/dms/image/C5103AQGr7-Yq1Vblng/profile-displayphoto-shrink_200_200/0?e=1574294400&v=beta&t=csqHsk_EOTxq-t6KbwKI60OD9lPRrFptClWDHwRBoHo" alt="Sayanth P" class="rounded-circle" width="250px">
+                <br> <br>
+                <p><strong>Sayanth P</strong></p>
+                <p>Full stack web developer</p>
+            </div>
+        </div>
+    </div><br>
+    <div id="contact" class="container-fluid bg-grey">
+        <h2 class="text-center">CONTACT</h2>
+        <div class="row">
+            <div class="col-sm-5">
+                <p>Contact us and we'll get back to you within 24 hours.</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span> Kerala, INDIA</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +91 00000000</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> admin@spaceblog.com</p>
+            </div>
+
+            <div class="col-sm-7 slideanim">
+                    <form name="form" (ngSubmit)="Submit()" #f="ngForm">
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <input class="form-control" id="name" name="name" placeholder="Name" #name="ngModel" [(ngModel)]="feedBack.name" type="text" required>
+                                </div>
+                                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                                        <div *ngIf="name.errors.required"> name  is required</div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <input class="form-control" id="email" name="email" placeholder="Email" #email="ngModel" [(ngModel)]="feedBack.email" type="text" required>
+                                </div>
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                        <div *ngIf="email.errors.required"> email  is required</div>
+                                </div>
+                            </div>
+                            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" #comments="ngModel" [(ngModel)]="feedBack.comments" rows="5"></textarea><br>
+                            <div *ngIf="comments.invalid && (comments.dirty || comments.touched)" class="alert alert-danger">
+                                    <div *ngIf="comments.errors.required"> comments  is required</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 form-group">
+                                    <button class="btn btn-default pull-right" type="submit"  [disabled]="!f.valid">Send</button>
+                                </div>
+                            </div>
+        
+                        </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
