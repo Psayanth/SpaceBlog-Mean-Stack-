@@ -5,8 +5,8 @@ import {blogPost} from 'src/app/blogPost.model';
 
 @Component({
   selector: 'app-explore',
-  templateUrl: './explore.component.html',
-  styleUrls: ['./explore.component.css']
+  templateUrl: './trending.component.html',
+  styleUrls: ['./trending.component.css']
 })
 export class TrendingComponent implements OnInit {
 
