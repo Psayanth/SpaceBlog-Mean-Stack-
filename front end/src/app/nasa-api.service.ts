@@ -14,7 +14,7 @@ export class NasaApiService {
   
   date = new Date().toISOString().slice(0,10);
   
-  nasa_url = 'https://api.nasa.gov/planetary/apod?api_key=eo9g7PCZj6Uz6Hr0jG53N1t7FYCFQsaDFC6jJIor&start_date=2019-09-15&end_date='+this.date;
+  nasa_url = 'https://api.nasa.gov/planetary/apod?api_key=key&start_date=2019-09-15&end_date='+this.date;
   
   
   getConfigResponse(): Observable<ApodResponse[]> {
